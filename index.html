@@ -10,15 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: The SPA is designed as a narrative journey for parents and players. It starts with a strong hook ('The Problem' with old methods), presents 'Our Two Pillars' (Methodology & Game Model) as the core solution, allows interactive exploration of each pillar, and concludes with 'The Result' (the complete player). This thematic flow is more persuasive and easier to digest than a direct report summary, guiding the user logically from 'why we're different' to 'what we do' and finally 'what your child will become'. Key interactions include a comparative chart and clickable tabs to break down complex ideas into manageable, engaging pieces. -->
-    <!-- Visualization & Content Choices: 
-        1. Training Comparison: Report Info -> Table comparing traditional vs. ecological drills. Goal -> Clearly show the superior outcomes of It's Football's method. Viz/Presentation -> Interactive Bar Chart (Chart.js). Interaction -> User clicks buttons ('Dribbling', 'Passing', 'Shooting') to update the chart, comparing "Key Learning Outcomes". Justification -> A dynamic chart is more engaging than a static table and visually emphasizes the difference in development focus. Library -> Chart.js on Canvas.
-        2. Four Game Phases: Report Info -> Bulleted list of principles for each phase of play. Goal -> Organize and present the core tactical identity. Viz/Presentation -> Tabbed content section (HTML/CSS/JS). Interaction -> User clicks on a phase (e.g., 'In Possession') to reveal the specific principles. Justification -> Hides complexity, allowing users to focus on one concept at a time, which is less overwhelming for parents and young players. Method -> HTML/Tailwind/JS.
-        3. 4-Corner Model: Report Info -> Description of the holistic player development framework. Goal -> Illustrate the well-rounded approach to player development. Viz/Presentation -> Four-quadrant graphic built with HTML/Tailwind. Interaction -> Hovering over each quadrant reveals descriptive text. Justification -> A simple, visual metaphor that's easy to understand and reinforces the concept of a 'complete' player. Method -> HTML/Tailwind/JS.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -150,6 +141,23 @@
                     <div class="chart-container">
                         <canvas id="trainingComparisonChart"></canvas>
                     </div>
+                    <div class="mt-8 text-center">
+                        <button id="toggle-sources-btn" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition-colors">
+                            데이터 근거 보기 &darr;
+                        </button>
+                        <div id="sources-list" class="hidden mt-4 p-4 bg-gray-100 rounded-lg text-left max-w-2xl mx-auto">
+                            <h5 class="font-bold text-brand-dark mb-2">참고 자료 및 연구</h5>
+                            <ul class="list-disc list-inside space-y-2 text-sm">
+                                <li><a href="https://www.researchgate.net/publication/356432709_The_Effectiveness_of_Constraints-Led_Training_on_Skill_Development_in_Football" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Effectiveness of Constraints-Led Training</a></li>
+                                <li><a href="https://scottgelbard.org/tactical-trends-in-modern-soccer-how-the-game-has-evolved-in-the-last-decade/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Tactical Trends in Modern Soccer</a></li>
+                                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11417948/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Ecological Dynamics in Youth Football</a></li>
+                                <li><a href="https://emergentmvmt.com/beyond-a-one-size-fits-all-approach-to-coaching/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Beyond a One-Size-Fits-All Approach</a></li>
+                                <li><a href="https://www.sportsmith.co/articles/ecological-dynamics/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Introduction to Ecological Dynamics</a></li>
+                                <li><a href="https://www.tandfonline.com/doi/full/10.1080/21640629.2022.2057698" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Game Model Development in Youth Sport</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=I4P2n2gCeQ4" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Ecological Approach in Practice (Video)</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -211,7 +219,7 @@
         <div class="container mx-auto text-center">
             <h3 class="text-3xl font-bold mb-4">미래를 향한 여정, 잇츠풋볼 U15와 함께.</h3>
             <p class="max-w-2xl mx-auto mb-8">과거의 방식에 머무르는 곳이 아닌, 축구의 미래를 만들어가는 곳을 선택하십시오.</p>
-            <a href="#" class="bg-brand-primary text-white font-bold py-3 px-8 rounded-full hover:bg-blue-500 transition-colors">입단 문의하기</a>
+            <a href="https://open.kakao.com/o/gkHrPAOh" target="_blank" rel="noopener noreferrer" class="bg-brand-primary text-white font-bold py-3 px-8 rounded-full hover:bg-blue-500 transition-colors">입단 문의하기</a>
         </div>
     </footer>
 
@@ -395,6 +403,16 @@
                 });
             });
             updatePhaseContent('attack');
+
+            // 추가된 JavaScript
+            const toggleBtn = document.getElementById('toggle-sources-btn');
+            const sourcesList = document.getElementById('sources-list');
+
+            toggleBtn.addEventListener('click', () => {
+                sourcesList.classList.toggle('hidden');
+                const isHidden = sourcesList.classList.contains('hidden');
+                toggleBtn.innerHTML = isHidden ? '데이터 근거 보기 &darr;' : '데이터 근거 숨기기 &uarr;';
+            });
         });
     </script>
 </body>
