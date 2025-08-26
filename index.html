@@ -16,7 +16,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* CSS-in-JS로 스크롤 동작을 부드럽게 만듭니다. */
         html {
             scroll-behavior: smooth;
         }
@@ -27,15 +26,45 @@
         }
         .bg-brand-dark { background-color: #2c3e50; }
         .bg-brand-primary { background-color: #3498db; }
+        .bg-brand-secondary { background-color: #e74c3c; }
         .text-brand-dark { color: #2c3e50; }
         .text-brand-primary { color: #3498db; }
-        .section-title { font-weight: 900; font-size: 2.5rem; line-height: 1.2; }
-        .section-subtitle { font-weight: 700; font-size: 1.5rem; color: #3498db; }
-        .nav-link { transition: color 0.3s, border-bottom-color 0.3s; border-bottom: 2px solid transparent; padding-bottom: 4px; }
-        .nav-link:hover, .nav-link.active { color: #3498db; border-bottom-color: #3498db; }
-        .tab-button { transition: all 0.3s; }
-        .tab-button.active { background-color: #2c3e50; color: #ffffff; }
-        .chart-container { position: relative; width: 100%; max-width: 800px; margin: auto; height: 400px; max-height: 50vh; }
+        .text-brand-light { color: #ecf0f1; }
+        .section-title {
+            font-weight: 900;
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+        .section-subtitle {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #3498db;
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #3498db;
+            border-bottom-color: #3498db;
+        }
+        .tab-button {
+            transition: all 0.3s;
+        }
+        .tab-button.active {
+            background-color: #2c3e50;
+            color: #ffffff;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
         @media (max-width: 768px) {
             .section-title { font-size: 2rem; }
             .section-subtitle { font-size: 1.25rem; }
@@ -47,9 +76,9 @@
 
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#">
-                <img src="https://raw.githubusercontent.com/ahdbrhsj-netizen/itsfootball/main/itslogo.png" alt="잇츠풋볼 U15 로고" class="h-16">
-            </a>
+        <a href="#">
+    <img src="https://raw.githubusercontent.com/ahdbrhsj-netizen/itsfootball/main/itslogo.png" alt="잇츠풋볼 U15 로고" class="h-16">
+</a>
             <div class="hidden md:flex space-x-8">
                 <a href="#philosophy" class="nav-link font-semibold">우리의 철학</a>
                 <a href="#methodology" class="nav-link font-semibold">훈련 방법론</a>
@@ -108,111 +137,13 @@
         </section>
 
         <section id="methodology" class="py-20 px-6 bg-gray-50">
-            </section>
-
-        <section id="gamemodel" class="py-20 px-6">
-            </section>
-
-        <section id="player" class="py-20 px-6 bg-gray-50">
-            </section>
-        
-        <section id="partnership" class="py-20 px-6 bg-white">
-            </section>
-    </main>
-
-    <footer class="bg-brand-dark text-white py-12 px-6">
-        <div class="container mx-auto text-center">
-            <h3 class="text-3xl font-bold mb-4">미래를 향한 여정, 잇츠풋볼 U15와 함께.</h3>
-            <p class="max-w-2xl mx-auto mb-8">과거의 방식에 머무르는 곳이 아닌, 축구의 미래를 만들어가는 곳을 선택하십시오.</p>
-            <a href="https://open.kakao.com/o/gkHrPAOh" target="_blank" rel="noopener noreferrer" class="bg-brand-primary text-white font-bold py-3 px-8 rounded-full hover:bg-blue-500 transition-colors">입단 문의하기</a>
-            
-            <div class="mt-8 pt-8 border-t border-gray-700">
-                <img src="https://raw.githubusercontent.com/ahdbrhsj-netizen/itsfootball/main/itslogo.png" alt="잇츠풋볼 U15 로고" class="h-16 mx-auto my-8">
-                <p class="font-semibold mb-4">잇츠풋볼 공식 채널</p>
-                <div class="flex justify-center items-center space-x-4">
-                    <a href="https://blog.naver.com/milmyeonboy" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition-colors">
-                        공식 블로그
-                    </a>
-                    <a href="https://www.instagram.com/yungil_choo/" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-bold py-2 px-6 rounded-full hover:bg-pink-600 transition-colors">
-                        공식 인스타그램
-                    </a>
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="section-subtitle">우리의 훈련 방법론</h2>
+                    <h3 class="section-title text-brand-dark mt-2">드릴과 콘을 넘어서: 기술 적응의 과학</h3>
+                    <p class="max-w-2xl mx-auto text-lg leading-loose mt-4">
+                        전통적인 훈련과 잇츠풋볼의 생태역학적 접근은 어떤 차이를 만들까요? 아래 버튼을 클릭하여 훈련 목표에 따른 핵심 학습 결과의 차이를 직접 확인해보세요. 우리의 훈련은 선수가 경기 당일의 퍼포먼스로 직접 이어지도록 설계됩니다.
+                    </p>
                 </div>
-                <p class="text-sm text-gray-400 mt-8">
-                    &copy; <span id="current-year"></span> It's Football. All Rights Reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // 모바일 메뉴 토글
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // 부드러운 스크롤 (JS 방식 대신 CSS의 scroll-behavior:smooth 사용)
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    document.querySelector(this.getAttribute('href')).scrollIntoView();
-                });
-            });
-
-            // (이하 차트, 탭, 데이터 근거 토글 등 기존 JS 코드는 동일)
-            const trainingData = { /* ... */ };
-            const ctx = document.getElementById('trainingComparisonChart').getContext('2d');
-            let trainingChart = new Chart(ctx, { /* ... */ });
-            const chartBtns = document.querySelectorAll('.chart-btn');
-            chartBtns.forEach(btn => { /* ... */ });
-            const gameModelData = { /* ... */ };
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const phaseContent = document.getElementById('phase-content');
-            function updatePhaseContent(phase) { /* ... */ }
-            tabButtons.forEach(button => { /* ... */ });
-            updatePhaseContent('attack');
-            const toggleBtn = document.getElementById('toggle-sources-btn');
-            const sourcesList = document.getElementById('sources-list');
-            toggleBtn.addEventListener('click', () => { /* ... */ });
-
-
-            // --- 여기에 새로운 JS 코드 추가 ---
-
-            // 푸터 연도 자동 업데이트
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-
-            // 스크롤에 따른 메뉴 활성화 기능
-            const sections = document.querySelectorAll('main section[id]');
-            const navLinks = document.querySelectorAll('header .nav-link');
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.5
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href').substring(1) === entry.target.id) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
-</body>
-</html>
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                    <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
