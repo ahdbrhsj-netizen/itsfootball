@@ -530,6 +530,11 @@
                         
                         const skill = btn.dataset.skill;
                         const skillTitle = btn.textContent;
+
+                        // =====================================================================
+                        // 확인을 위해 이 console.log를 추가해 보세요
+                        console.log('선택된 데이터:', trainingData[skill]);
+                        // =====================================================================
                         
                         trainingChart.data.labels = trainingData[skill].labels;
                         trainingChart.data.datasets[0].data = trainingData[skill].traditional;
@@ -623,4 +628,5 @@
     </script>
 </body>
 </html>
+
 
