@@ -1,1426 +1,427 @@
 <!DOCTYPE html>
-
 <html lang="ko">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>잇츠풋볼 U15 </title>
-
-
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
-    <link rel="manifest" href="/site.webmanifest">
-
-
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
-
-    <style>
-
-        html {
-
-            scroll-behavior: smooth;
-
-        }
-
-        body {
-
-            font-family: 'Noto Sans KR', sans-serif;
-
-            background-color: #FDFBF8;
-
-            color: #4A4A4A;
-
-        }
-
-        .bg-brand-dark { background-color: #2c3e50; }
-
-        .bg-brand-primary { background-color: #3498db; }
-
-        .bg-brand-secondary { background-color: #e74c3c; }
-
-        .text-brand-dark { color: #2c3e50; }
-
-        .text-brand-primary { color: #3498db; }
-
-        .text-brand-light { color: #ecf0f1; }
-
-        .section-title {
-
-            font-weight: 900;
-
-            font-size: 2.5rem;
-
-            line-height: 1.2;
-
-        }
-
-        .section-subtitle {
-
-            font-weight: 700;
-
-            font-size: 1.5rem;
-
-            color: #3498db;
-
-        }
-
-        .nav-link {
-
-            transition: color 0.3s, border-bottom-color 0.3s;
-
-            border-bottom: 2px solid transparent;
-
-            padding-bottom: 4px;
-
-        }
-
-        .nav-link:hover, .nav-link.active {
-
-            color: #3498db;
-
-            border-bottom-color: #3498db;
-
-        }
-
-        .tab-button {
-
-            transition: all 0.3s;
-
-        }
-
-        .tab-button.active {
-
-            background-color: #2c3e50;
-
-            color: #ffffff;
-
-        }
-
-        .chart-container {
-
-            position: relative;
-
-            width: 100%;
-
-            max-width: 800px;
-
-            margin-left: auto;
-
-            margin-right: auto;
-
-            height: 400px;
-
-            max-height: 50vh;
-
-        }
-
-        @media (max-width: 768px) {
-
-            .section-title { font-size: 2rem; }
-
-            .section-subtitle { font-size: 1.25rem; }
-
-            .chart-container { height: 300px; }
-
-        }
-
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>잇츠풋볼 U15</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .bg-navy { background-color: #1a2a45; }
+        .bg-gold { background-color: #d4af37; }
+        .text-navy { color: #1a2a45; }
+        .text-gold { color: #d4af37; }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 3rem;
+            letter-spacing: -0.5px;
+        }
+        .section-subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-link {
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 6px;
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #1a2a45;
+            border-bottom-color: #d4af37;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            height: 400px;
+        }
+        .gradient-btn {
+            background-image: linear-gradient(to right, #1a2a45 0%, #2c3e50 51%, #1a2a45 100%);
+            background-size: 200% auto;
+            transition: 0.5s;
+        }
+        .gradient-btn:hover {
+            background-position: right center;
+        }
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 2.25rem; }
+            .section-subtitle { font-size: 1rem; }
+        }
+    </style>
 </head>
-
 <body class="antialiased">
 
-
-
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-
-            <a href="#">
-
-                <img src="https://raw.githubusercontent.com/ahdbrhsj-netizen/itsfootball/main/itslogo.png" alt="잇츠풋볼 U15 로고" class="h-16">
-
-            </a>
-
-            <div class="hidden md:flex space-x-8">
-
-                <a href="#philosophy" class="nav-link font-semibold">우리의 철학</a>
-
-                <a href="#methodology" class="nav-link font-semibold">훈련 방법론</a>
-
-                <a href="#gamemodel" class="nav-link font-semibold">경기 모델</a>
-
-                <a href="#player" class="nav-link font-semibold">선수 육성</a>
-
-                <a href="#ebooks" class="nav-link font-semibold">무료 E-Book</a>
-
-                <a href="#partnership" class="nav-link font-semibold">파트너십</a>
-
-            </div>
-
-            <div class="md:hidden">
-
-                <button id="menu-btn" class="text-brand-dark focus:outline-none">
-
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-
-                </button>
-
-            </div>
-
-        </nav>
-
-        <div id="mobile-menu" class="hidden md:hidden">
-
-            <a href="#philosophy" class="block py-2 px-4 text-sm hover:bg-gray-100">우리의 철학</a>
-
-            <a href="#methodology" class="block py-2 px-4 text-sm hover:bg-gray-100">훈련 방법론</a>
-
-            <a href="#gamemodel" class="block py-2 px-4 text-sm hover:bg-gray-100">경기 모델</a>
-
-            <a href="#player" class="block py-2 px-4 text-sm hover:bg-gray-100">선수 육성</a>
-
-            <a href="#ebooks" class="block py-2 px-4 text-sm hover:bg-gray-100">무료 E-Book</a>
-
-            <a href="#partnership" class="block py-2 px-4 text-sm hover:bg-gray-100">파트너십</a>
-
-        </div>
-
-    </header>
-
-
-
-    <main>
-
-        <section id="hero" class="relative text-white text-center py-32 px-6 bg-brand-dark">
-
-            <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.unsplash.com/photo-1551958214-2d51d7858346?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
-
-            <div class="relative z-10">
-
-                <h1 class="text-5xl md:text-6xl font-black leading-tight mb-4">현대 축구 선수를 위한 <span class="text-brand-primary">설계도</span></h1>
-
-                <p class="text-lg md:text-xl max-w-2xl mx-auto text-brand-light">잇츠풋볼 U15는 과학적 접근법과 명확한 축구 철학으로 스스로 생각하고, 경기를 지배하며, 어떤 상황에서도 적응하는 선수를 만듭니다.</p>
-
-            </div>
-
-        </section>
-
-
-
-        <section id="philosophy" class="py-20 px-6">
-
-            <div class="container mx-auto text-center">
-
-                <h2 class="section-subtitle">새로운 시대의 선수 육성</h2>
-
-                <h3 class="section-title text-brand-dark mt-2 mb-8">과거의 방식으로는 미래를 준비할 수 없습니다.</h3>
-
-                <p class="max-w-2xl mx-auto text-lg leading-loose mb-12">
-
-                    현대 축구는 그 어느 때보다 빠르고 복잡합니다. 정해진 동작을 기계적으로 반복하는 훈련은 더 이상 통하지 않습니다. 우리는 선수의 창의성과 자율적인 의사결정 능력을 저해하는 낡은 방식을 버리고, 선수 육성에 대한 근본적인 패러다임 전환을 제안합니다.
-
-                </p>
-
-                <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-
-                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-2 transition-transform duration-300">
-
-                        <div class="text-5xl font-black text-brand-primary mb-4">01</div>
-
-                        <h4 class="text-2xl font-bold text-brand-dark mb-3">훈련 방법론: 생태역학</h4>
-
-                        <p class="text-base leading-loose">
-
-                            '어떻게' 훈련하는가? 우리는 실제 경기의 복잡성을 그대로 반영한 훈련 환경을 설계합니다. 선수들은 정답을 주입받는 것이 아니라, 스스로 문제를 발견하고 해결하며 '기술 적응(Skill Adaptation)' 능력을 키웁니다.
-
-                        </p>
-
-                    </div>
-
-                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-2 transition-transform duration-300">
-
-                        <div class="text-5xl font-black text-brand-primary mb-4">02</div>
-
-                        <h4 class="text-2xl font-bold text-brand-dark mb-3">축구 정체성: 경기 모델</h4>
-
-                        <p class="text-base leading-loose">
-
-                            '무엇을' 추구하는가? 우리는 명확한 경기 모델을 통해 우리가 어떤 축구를 할 것인지에 대한 청사진을 제시합니다. 이는 선수들이 경기장 위에서 내리는 모든 결정의 일관된 기준점이 됩니다.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <section id="methodology" class="py-20 px-6 bg-gray-50">
-
-            <div class="container mx-auto">
-
-                <div class="text-center mb-12">
-
-                    <h2 class="section-subtitle">우리의 훈련 방법론</h2>
-
-                    <h3 class="section-title text-brand-dark mt-2">드릴과 콘을 넘어서: 기술 적응의 과학</h3>
-
-                    <p class="max-w-2xl mx-auto text-lg leading-loose mt-4">
-
-                        전통적인 훈련과 잇츠풋볼의 생태역학적 접근은 어떤 차이를 만들까요? 아래 버튼을 클릭하여 훈련 목표에 따른 핵심 학습 결과의 차이를 직접 확인해보세요. 우리의 훈련은 선수가 경기 당일의 퍼포먼스로 직접 이어지도록 설계됩니다.
-
-                    </p>
-
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-
-                    <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
-
-                        <button class="chart-btn active px-4 py-2 bg-brand-dark text-white rounded-full font-semibold" data-skill="dribble">1v1 드리블</button>
-
-                        <button class="chart-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold" data-skill="pass">패스 정확도</button>
-
-                        <button class="chart-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold" data-skill="shoot">슈팅 능력</button>
-
-                    </div>
-
-                    <div class="chart-container">
-
-                        <canvas id="trainingComparisonChart"></canvas>
-
-                    </div>
-
-                    <div class="mt-8 text-center">
-
-                        <button id="toggle-sources-btn" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition-colors">
-
-                            데이터 근거 보기 &darr;
-
-                        </button>
-
-                       <div id="sources-list" class="hidden mt-4 p-6 bg-gray-100 rounded-lg text-left max-w-4xl mx-auto">
-
-    <h5 class="font-bold text-brand-dark mb-6 text-xl text-center">과학적 근거 자료</h5>
-
-    
-
-    <div class="space-y-8">
-
-        <div>
-
-            <h6 class="font-bold text-brand-dark text-lg mb-4 pb-2 border-b"># 현대적 훈련법의 과학적 근거</h6>
-
-            <ul class="space-y-4 text-sm">
-
-                <li>
-
-                    <a href="https://pdfs.semanticscholar.org/08c1/c59a1fa6b0a4dd724e7e332e1e7d0f6bae20.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">The Constraints-Led Approach as a Framework for Skill Acquisition in Football</a>
-
-                    <p class="text-xs text-gray-600 mt-1">잇츠풋볼의 핵심 훈련법인 '제약 주도 훈련(CLA)'의 과학적 효과를 종합적으로 설명합니다. 이 연구는 제약 조건(선수 수, 공간, 규칙 등)을 조작하는 훈련이 드리블 정확도를 유의미하게 향상시키는 등, 선수들이 환경과의 상호작용을 통해 스스로 기능적 해답을 찾도록 유도함을 실험적으로 증명합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://gwulf.faculty.unlv.edu/wp-content/uploads/2019/03/Chua_Variable_practice_AF_2019.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">How variability of practice promotes the transfer of learning: A review</a>
-
-                    <p class="text-xs text-gray-600 mt-1">다양한 상황(다른 거리, 속도, 환경)을 설정하는 '가변적 훈련'이 실제 경기력 향상에 더 효과적인 이유를 설명합니다. 특히 가변적 훈련이 선수의 주의를 신체 내부가 아닌 움직임의 결과(외부 집중)로 유도하여, 더 유연하고 전이 가능한 운동 스키마를 형성하는 신경학적 메커니즘을 탐구합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://www.routledge.com/Nonlinear-Pedagogy-in-Skill-Acquisition-An-Introduction/Chow-Davids-Button-Renshaw/p/book/9780367423773" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Non-linear pedagogy in skill acquisition: an introduction</a>
-
-                    <p class="text-xs text-gray-600 mt-1">획일적인 주입식 교육(선형 교수법)이 아닌, 선수-환경-코치를 하나의 복잡한 상호작용 시스템으로 보는 선수 중심의 유동적인 코칭 철학, '비선형 교수법'의 중요성을 강조합니다. 학습이 예측 불가능한 비선형적 과정임을 설명하고, 제약 조작을 통한 탐색적 학습을 장려합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7919346/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">The role of the coach in facilitating skill acquisition in team-sport players</a>
-
-                    <p class="text-xs text-gray-600 mt-1">현대 스포츠에서 코치는 정답 제공자(instructor)가 아닌, 훈련 환경 '설계자(designer)'임을 설명합니다. 이 연구는 민주적 리더십과 소규모 게임(SSG) 같은 교수법이 선수의 자율성, 의사결정 능력, 사회적 기술 발달을 촉진하며, 이것이 기술 습득에 긍정적인 영향을 미친다는 것을 보여줍니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://shura.shu.ac.uk/30560/1/Davids-AnEcologicalDynamics%28VoR%29.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">An ecological dynamics approach to motor learning in practice: A case study in youth football</a>
-
-                    <p class="text-xs text-gray-600 mt-1">생태역학적 훈련을 실제 유소년 축구팀에 적용한 긍정적 사례 연구입니다. 이 논문은 학습과 수행을 분리된 과정으로 보는 전통적 관점을 비판하고, 학습이 수행 환경과의 상호작용 속에서 지속적으로 일어나는 과정임을 실제 고성능 스포츠 사례(비치발리볼, 크리켓 등)를 통해 증명합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://www.researchgate.net/publication/236177149_An_Ecological_Dynamics_Approach_to_Skill_Acquisition_Implications_for_Development_of_Talent_in_Sport" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">An Ecological Dynamics Approach to Skill Acquisition: Implications for Development of Talent in Sport</a>
-
-                    <p class="text-xs text-gray-600 mt-1">생태역학이 스포츠 기술 습득과 재능 개발에 미치는 영향을 깊이 있게 탐구합니다. 선수를 환경과 분리된 개체로 보는 대신, '선수-환경 시스템'의 상호작용 속에서 어떻게 지각과 행동이 연결되고 적응적 움직임이 나타나는지를 설명하며, 재능 발굴의 새로운 관점을 제시합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://sirc.ca/articles/representative-learning-design/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Representative Learning Design: a framework for the design and evaluation of sport practice environments</a>
-
-                    <p class="text-xs text-gray-600 mt-1">훈련이 실전에서의 경기력으로 이어지려면, 훈련 환경이 실제 경기 환경을 '대표'해야 한다는 '대표적 학습 설계(RLD)'의 개념을 소개합니다. 훈련이 실제 경기의 움직임(행동 충실도)과 정보적 단서(기능성)를 얼마나 잘 모방하는지가 학습 전이의 핵심임을 강조합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://vuir.vu.edu.au/48661/1/The-adaptable-coach-a-critical-review-of-the-practical-implications-for-traditional-and.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">The adaptable coach: a critical review of the practical implications for traditional and contemporary approaches to coaching</a>
-
-                    <p class="text-xs text-gray-600 mt-1">전통적 코칭(지시적, 반복적)과 현대적 코칭(제약 주도)의 장단점을 비교하며, 어느 한쪽이 절대적으로 우월한 것이 아니라 상황에 맞게 두 접근법의 원리를 통합하는 '적응력 있는 코치'가 될 것을 제안합니다. 코칭은 과학이자 예술임을 강조합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://www.researchgate.net/publication/351894197_Learning_by_Design_What_Sports_Coaches_can_Learn_from_Video_Game_Designs" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Learning by Design: What Sports Coaches can Learn from Video Game Designs</a>
-
-                    <p class="text-xs text-gray-600 mt-1">잘 설계된 비디오 게임이 어떻게 플레이어의 몰입과 학습을 유도하는지 분석하고, 그 원리들을 스포츠 코칭에 적용할 것을 제안합니다. 코치를 '학습 경험 디자이너'로 재정의하며, 선수의 탐색, 발견, 문제 해결을 촉진하는 정보가 풍부한 훈련 환경을 설계하는 방법을 제시합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://www.researchgate.net/publication/316876100_The_Role_of_Variability_in_Motor_Learning" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">The Role of Variability in Motor Learning</a>
-
-                    <p class="text-xs text-gray-600 mt-1">움직임의 가변성을 신경계의 '노이즈'나 '오류'로 보던 전통적 관점을 뒤집고, 학습을 위한 '의도적 탐색' 과정으로 재해석하는 신경과학적 연구들을 리뷰합니다. 가변성이 강화(성공/실패)와 결합하여 운동 학습을 어떻게 주도하는지 설명합니다.</p>
-
-                </li>
-
-            </ul>
-
-        </div>
-
-
-
-        <div>
-
-            <h6 class="font-bold text-brand-dark text-lg mb-4 pt-4 border-t"># 전통적 훈련법의 한계와 문제점</h6>
-
-            <ul class="space-y-4 text-sm">
-
-                <li>
-
-                    <a href="https://gwulf.faculty.unlv.edu/wp-content/uploads/2018/11/Wulf_AF_review_2013.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Attentional Focus and Motor Learning: A Review of 15 Years (by Gabriele Wulf)</a>
-
-                    <p class="text-xs text-gray-600 mt-1">자신의 신체 움직임에 집중하는 '내부 집중'이 왜 비효율적인지를 '제약된 행동 가설'을 통해 설명하는 결정적인 리뷰 논문입니다. 움직임의 결과(예: 공의 비행)에 집중하는 '외부 집중'이 운동 시스템의 자동적 통제를 촉진하여 학습 속도와 수행 능력을 극적으로 향상시킴을 방대한 연구를 통해 입증합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://osf.io/6jqeg/download" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Differential learning as a motor learning method: A critical appraisal</a>
-
-                    <p class="text-xs text-gray-600 mt-1">'차이 학습(DL)' 이론을 비판적으로 검토하고 메타 분석을 통해 그 효과를 입증합니다. 동일한 동작을 반복하지 않고 계속해서 다른 변형을 시도하는 훈련이 전통적인 반복 훈련보다, 특히 장기적인 기술 유지(retention) 측면에서 더 우수한 학습 효과를 낳는다는 결론을 제시합니다.</p>
-
-                </li>
-
-                 <li>
-
-                    <a href="https://www.researchgate.net/publication/368310800_The_effect_of_nonlinear_pedagogy_on_the_acquisition_of_game_skills_in_a_territorial_game" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">The effect of nonlinear pedagogy on the acquisition of game skills in a territorial game</a>
-
-                    <p class="text-xs text-gray-600 mt-1">비선형 교수법(NP) 기반의 훈련이 전통적인 선형 교수법(LP)보다 축구 게임 기술 습득에 더 효과적임을 실험을 통해 보여줍니다. NP 그룹은 더 나은 경기 수행 능력과 의사결정 향상을 보였으며, 이는 "만능(one-size-fits-all)" 코칭 철학의 한계를 명확히 지적합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://www.researchgate.net/publication/333002809_Differential_Learning_as_an_Important_Factor_in_Training_of_Football_Technical_Skills" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Differential Learning as an Important Factor in Training of Football Technical Skills</a>
-
-                    <p class="text-xs text-gray-600 mt-1">유소년 축구선수들을 대상으로 8주간 차이 학습(DL)과 전통적 훈련의 효과를 비교한 연구입니다. DL 그룹은 모든 기술 항목에서 유의미한 향상을 보였으며, 특히 드리블링 관련 기술(민첩성, 창의적 속도)에서 전통적 훈련 그룹보다 월등히 높은 향상도를 기록했습니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://www.breakthroughbasketball.com/coaching/constraint-led-approach.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">The Constraints-Led Approach to coaching in basketball</a>
-
-                    <p class="text-xs text-gray-600 mt-1">제약 주도 접근법(CLA)을 농구 훈련에 적용하는 구체적인 방법과 예시를 제공하는 실용적인 가이드입니다. 전통적인 드릴 기반 훈련이 어떻게 선수들을 의존적으로 만드는지 비판하고, 제약(규칙, 공간, 수비 조건 변경 등)을 활용한 소규모 게임이 어떻게 창의적이고 적응력 있는 문제 해결사를 키우는지 설명합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://www.researchgate.net/publication/337752444_Sport_expertise_development_and_the_constraints-led_approach" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Sport expertise development and the constraints-led approach</a>
-
-                    <p class="text-xs text-gray-600 mt-1">스포츠 전문성 발달 과정을 제약 주도 접근법의 관점에서 분석합니다. 선수의 전문성은 단순히 연습 시간을 축적하는 것이 아니라, 개인적, 환경적, 사회문화적 제약 조건과의 복잡한 상호작용을 통해 형성됨을 브라질 축구 사례를 통해 설명합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://pubs.asha.org/doi/10.1044/1092-4388%282007/011%29" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">An external versus internal focus of attention enhances motor learning in the oral-facial system</a>
-
-                    <p class="text-xs text-gray-600 mt-1">외부 집중의 효과가 팔다리 운동뿐만 아니라 혀의 움직임과 같은 구강-안면 시스템에서도 동일하게 나타남을 보여주는 독특한 연구입니다. 이는 외부 집중의 우월성이 특정 신체 부위나 기술에 국한되지 않는, 운동 제어의 보편적인 원리임을 시사합니다.</p>
-
-                </li>
-
-                 <li>
-
-                    <a href="https://www.jhse.es/index.php/jhse/article/view/ecological-dynamics-approach-physical-education" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Ecological dynamics approach in physical education to promote cognitive skills development: A review</a>
-
-                    <p class="text-xs text-gray-600 mt-1">생태역학적 접근법에 기반한 체육 활동이 단순한 신체 기술 습득을 넘어, 의사결정, 문제 해결, 창의적 사고와 같은 핵심 인지 능력(Cognitive Life Skills) 발달에 어떻게 기여할 수 있는지를 이론적으로 고찰합니다.</p>
-
-                </li>
-
-                 <li>
-
-                    <a href="https://www.numberanalytics.com/blog/science-of-variability-in-motor-learning" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">The neuroscience of motor variability</a>
-
-                    <p class="text-xs text-gray-600 mt-1">가변적 훈련이 뇌와 신경 시스템에 미치는 영향을 신경과학적 관점에서 설명합니다. 가변적 연습이 어떻게 새로운 신경 회로를 형성하고 기존 시냅스 연결을 강화하여, 더 유연하고 적응력 있는 운동 표상(motor representation)을 만드는지 그 메커니즘을 해설합니다.</p>
-
-                </li>
-
-                <li>
-
-                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5856877/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Path dependence and the origins of periodization theory</a>
-
-                    <p class="text-xs text-gray-600 mt-1">현대 훈련 계획의 근간인 '주기화(periodization)' 이론이 실제로는 낡고 과학적 기반이 약한 스트레스 이론에 뿌리를 두고 있음을 비판적으로 분석합니다. 과거의 신념이 어떻게 현재의 훈련 관행을 제약하는지 '경로 의존성' 개념으로 설명하며, 훈련 철학의 근본적인 재검토를 촉구합니다.</p>
-
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</div>
-
-        </section>
-
-
-
-        <section id="gamemodel" class="py-20 px-6">
-
-            <div class="container mx-auto">
-
-                <div class="text-center mb-12">
-
-                    <h2 class="section-subtitle">우리의 축구 정체성</h2>
-
-                    <h3 class="section-title text-brand-dark mt-2">성공을 위한 청사진: 잇츠풋볼 경기 모델</h3>
-
-                    <p class="max-w-2xl mx-auto text-lg leading-loose mt-4">
-
-                        경기 모델은 우리 팀의 영혼입니다. 이는 우리가 어떤 축구를 하는지, 왜 그렇게 하는지에 대한 명확한 답을 제공합니다. 우리는 경기의 네 가지 국면을 지배하기 위한 명확한 원칙을 가지고 있으며, 이를 통해 선수들은 하나의 유기체처럼 움직입니다.
-
-                    </p>
-
-                </div>
-
-                <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-
-                    <div class="grid grid-cols-2 md:grid-cols-4">
-
-                        <button class="tab-button active p-4 font-bold text-center" data-phase="attack">⚽ 볼 소유 시</button>
-
-                        <button class="tab-button p-4 font-bold text-center" data-phase="defense">🛡️ 볼 미소유 시</button>
-
-                        <button class="tab-button p-4 font-bold text-center" data-phase="t_attack">⚡ 공격 전환</button>
-
-                        <button class="tab-button p-4 font-bold text-center" data-phase="t_defense">🏃 수비 전환</button>
-
-                    </div>
-
-                    <div id="phase-content" class="p-8 md:p-10">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <section id="player" class="py-20 px-6 bg-gray-50">
-
-            <div class="container mx-auto">
-
-                <div class="text-center mb-12">
-
-                    <h2 class="section-subtitle">현대 축구 선수의 완성</h2>
-
-                    <h3 class="section-title text-brand-dark mt-2">우리의 4-코너 선수 육성 프레임워크</h3>
-
-                     <p class="max-w-2xl mx-auto text-lg leading-loose mt-4">
-
-                        우리는 기술만 뛰어난 선수가 아닌, 전술, 신체, 심리, 사회성을 모두 갖춘 '완벽한 선수'를 만듭니다. 우리의 모든 훈련은 이 네 가지 영역을 통합적으로 성장시키도록 설계되어 있으며, 이는 경기장 안팎에서 선수의 잠재력을 극대화합니다.
-
-                    </p>
-
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-
-                    <div class="corner-card bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
-
-                        <h4 class="text-xl font-bold text-brand-dark mb-2">기술/전술 (Technical/Tactical)</h4>
-
-                        <p>모든 기술은 경기라는 전술적 맥락 안에서 훈련됩니다. 압박 속에서도 무너지지 않는 '기능적인 기술'을 만듭니다.</p>
-
-                    </div>
-
-                    <div class="corner-card bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
-
-                        <h4 class="text-xl font-bold text-brand-dark mb-2">신체 (Physical)</h4>
-
-                        <p>훈련 자체가 축구에 특화된 신체 능력을 요구합니다. 경기 맥락 안에서 가속, 감속, 방향 전환 능력을 자연스럽게 발달시킵니다.</p>
-
-                    </div>
-
-                    <div class="corner-card bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
-
-                        <h4 class="text-xl font-bold text-brand-dark mb-2">심리 (Psychological)</h4>
-
-                        <p>스스로 문제를 해결하고 실패를 통해 배우는 환경 속에서 회복탄력성, 자신감, 창의성이 자연스럽게 만들어집니다.</p>
-
-                    </div>
-
-                    <div class="corner-card bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-500">
-
-                        <h4 class="text-xl font-bold text-brand-dark mb-2">사회성 (Social)</h4>
-
-                        <p>게임 기반 훈련은 자연스럽게 높은 수준의 의사소통, 팀워크, 리더십, 그리고 책임감을 요구합니다.</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        
-
-        <section id="ebook-intro" class="py-20 px-6 bg-brand-dark text-white">
-
-            <div class="container mx-auto text-center">
-
-                <h2 class="section-subtitle" style="color: #ffffff;">더 깊은 지식과 통찰력</h2>
-
-                <h3 class="section-title mt-2 mb-8">무료 E-Book 자료실</h3>
-
-                <p class="max-w-2xl mx-auto text-lg leading-loose mb-10 text-brand-light">
-
-                    잇츠풋볼은 투명한 정보 공개를 지향합니다. 저희의 훈련 철학의 근간이 되는 현대 축구 훈련 이론과 연구 자료들을 엄선하여 무료로 제공합니다. 선수와 학부모님 모두가 함께 성장할 수 있는 기회를 놓치지 마세요.
-
-                </p>
-
-                <a href="#ebooks" class="bg-brand-primary text-white font-bold py-3 px-8 rounded-full hover:bg-blue-500 transition-colors text-lg">
-
-                    E-Book 자료실 바로가기 &rarr;
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <section id="partnership" class="py-20 px-6 bg-white">
-
-            <div class="container mx-auto text-center">
-
-                <h2 class="section-subtitle">새로운 파트너십</h2>
-
-                <h3 class="section-title text-brand-dark mt-2 mb-8">JY Sports Management와 함께합니다.</h3>
-
-                <p class="max-w-2xl mx-auto text-lg leading-loose mb-10">
-
-                    잇츠풋볼은 선수들의 성장과 미래를 위해 JY Sports Management와 정식으로 파트너십을 맺습니다. 이번 협약을 통해 선수들은 더욱 체계적이고 전문적인 지원을 받게 될 것입니다.
-
-                </p>
-
-                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
-
-                    <div class="md:w-1/3">
-
-                        <div class="w-48 h-48 rounded-full mx-auto flex items-center justify-center overflow-hidden">
-
-                            <img src="https://raw.githubusercontent.com/ahdbrhsj-netizen/itsfootball/main/jy_logo.jpg" alt="JY Sports Management 로고" class="object-cover w-full h-full">
-
-                        </div>
-
-                    </div>
-
-                    <div class="md:w-2/3 text-left">
-
-                        <p class="text-2xl font-bold text-brand-dark mb-4">공식 협약일: 2025년 9월 6일</p>
-
-                        <p class="mb-6">
-
-                            JY Sports Management는 선수들의 잠재력을 최대로 이끌어내는 전문 에이전시입니다. 잇츠풋볼과의 시너지를 통해 우리 선수들이 더 큰 무대로 나아갈 수 있는 길을 열어줄 것입니다.
-
-                        </p>
-
-                        <a href="https://www.instagram.com/jy_sports_management/" target="_blank" rel="noopener noreferrer" class="bg-brand-dark text-white font-bold py-3 px-8 rounded-full hover:bg-gray-700 transition-colors">
-
-                            JY Sports Management 방문하기
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <hr class="my-16 border-t-2 border-gray-100">
-
-
-
-                <div class="mt-12">
-
-                    <h4 class="text-2xl font-bold text-brand-dark mb-10">주요 파트너십 성과</h4>
-
-                    <div class="bg-gray-50 rounded-lg shadow-lg p-8 max-w-5xl mx-auto">
-
-                        <div class="flex flex-col md:flex-row items-start gap-8">
-
-                            <div class="md:w-1/3 w-full">
-
-                                <img src="bae.png" alt="보인고-페예노르트 파트너십 기사" class="rounded-lg shadow-md w-full">
-
-                            </div>
-
-                            <div class="md:w-2/3 w-full text-left">
-
-                                <h5 class="text-xl font-bold text-brand-dark mb-3">JY 스포츠 매니지먼트, 보인고-페예노르트 파트너십 계약 체결</h5>
-
-                                <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-
-                                    JY 스포츠 매니지먼트는 최근 서울 보인고와 네덜란드 명문 페예노르트 간의 유소년 선수 육성 파트너십 계약을 성공적으로 이끌었습니다. 이 계약의 핵심은 보인고 유망주 배승균 선수의 페예노르트 1군 이적과 함께 양측의 장기적인 협력 관계를 구축하는 것입니다.
-
-                                </p>
-
-                                <div class="space-y-4">
-
-                                    <div>
-
-                                        <h6 class="font-bold text-brand-primary">배승균 선수 1군 계약</h6>
-
-                                        <ul class="list-disc list-inside text-gray-700 text-sm mt-1 space-y-1">
-
-                                            <li>이례적 계약: 보인고 3학년 미드필더 배승균(2007년생), 고교생 신분으로 유럽 명문 구단 1군 직행 계약 (3년)</li>
-
-                                            <li>높은 평가: 비유럽 선수 규정에도 불구, 페예노르트가 선수의 잠재력을 높이 평가하여 영입 결정</li>
-
-                                        </ul>
-
-                                    </div>
-
-                                    <div>
-
-                                        <h6 class="font-bold text-brand-primary">보인고-페예노르트 파트너십</h6>
-
-                                        <ul class="list-disc list-inside text-gray-700 text-sm mt-1 space-y-1">
-
-                                            <li>협력 목표: 선수 선발 및 유소년 교육 시스템 전반에 걸친 협력</li>
-
-                                            <li>주요 내용: 페예노르트, 매년 보인고에서 트라이얼을 개최하여 유망주 발굴 계획</li>
-
-                                        </ul>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <section id="ebooks" class="py-20 px-6 bg-gray-50">
-
-            <div class="container mx-auto">
-
-                <div class="text-center mb-16">
-
-                    <h2 class="section-subtitle">잇츠풋볼 추천 자료</h2>
-
-                    <h3 class="section-title text-brand-dark mt-2">E-Book</h3>
-
-                </div>
-
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-
-
-            <div class="bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col p-8">
-
-                <div class="flex-shrink-0 mb-4">
-
-                    <svg class="w-12 h-12 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-
-                    </svg>
-
-                </div>
-
-                <div class="flex flex-col flex-grow">
-
-                    <h4 class="text-xl font-bold text-brand-dark mb-3">부모님들이 몰랐던 한국축구의 불편한 진실</h4>
-
-                    <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">
-
-                        "왜 기본기 훈련을 반복해도 경기력은 늘지 않을까요?" 한국 유소년 축구의 '기본기 만능주의'라는 불편한 진실을 파헤치고, 현대 스포츠 과학에 기반한 대안을 제시합니다.
-
-                    </p>
-
-                    <a href="https://github.com/ahdbrhsj-netizen/itsfootball/raw/main/%EB%B6%80%EB%AA%A8%EB%8B%98%EB%93%A4%EC%9D%B4%20%EB%AA%B0%EB%9E%90%EB%8D%98%20%ED%95%9C%EA%B5%AD%EC%B6%95%EA%B5%AC%EC%9D%98%20%EB%B6%88%ED%8E%B8%ED%95%9C%20%EC%A7%84%EC%8B%A4.pdf" target="_blank" rel="noopener noreferrer" class="mt-auto bg-brand-dark text-white text-center font-semibold py-3 px-5 rounded-lg hover:bg-gray-700 transition-colors">
-
-                        PDF 바로보기
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col p-8">
-
-                <div class="flex-shrink-0 mb-4">
-
-                    <svg class="w-12 h-12 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-
-                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12A2.25 2.25 0 0 0 20.25 14.25V3m-16.5 0h16.5m-16.5 0H3.75m16.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-12a2.25 2.25 0 0 1-2.25-2.25V3" />
-
-                    </svg>
-
-                </div>
-
-                <div class="flex flex-col flex-grow">
-
-                    <h4 class="text-xl font-bold text-brand-dark mb-3">세리에 A로 알아보는 드리블과 팀 성적의 연관성</h4>
-
-                    <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">
-
-                    "1:1을 이기는 팀이 경기를 이길 확률은 75%입니다." 이탈리아 세리에 A 데이터를 바탕으로, 드리블 성공률이 팀의 득점과 리그 순위에 미치는 영향을 심층 분석한 리포트입니다. 현대 축구에서 드리블의 전술적 가치를 데이터로 확인해보세요.
-
-                    </p>
-
-                    <a href="https://github.com/ahdbrhsj-netizen/itsfootball/raw/main/%EC%84%B8%EB%A6%AC%EC%97%90%20A%EB%A1%9C%20%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94%20%EB%93%9C%EB%A6%AC%EB%B8%94%EA%B3%BC%20%ED%8C%80%20%EC%84%B1%EC%A0%81%EC%9D%98%20%EC%97%B0%EA%B4%80%EC%84%B1.pdf" target="_blank" rel="noopener noreferrer" class="mt-auto bg-brand-dark text-white text-center font-semibold py-3 px-5 rounded-lg hover:bg-gray-700 transition-colors">
-
-                        PDF 바로보기
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col p-8">
-
-                <div class="flex-shrink-0 mb-4">
-
-                    <svg class="w-12 h-12 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-1.5m-1.5 1.5a6.01 6.01 0 0 1-1.5-1.5m1.5 1.5v5.25m0 0a5.997 5.997 0 0 1-5.25-1.5m5.25 1.5a5.997 5.997 0 0 0 5.25-1.5m-10.5 0a5.997 5.997 0 0 1 5.25-1.5m-5.25 1.5a5.997 5.997 0 0 0-5.25-1.5m10.5 0a5.997 5.997 0 0 0-5.25 1.5m5.25 1.5m-5.25-1.5a3 3 0 0 1 3-3m-3 3a3 3 0 0 0-3 3m3-3a3 3 0 0 1 3 3m-3 3a3 3 0 0 0-3 3" />
-
-                    </svg>
-
-                </div>
-
-                <div class="flex flex-col flex-grow">
-
-                    <h4 class="text-xl font-bold text-brand-dark mb-3">생태-동역학적 관점의 축구 코칭 입문서</h4>
-
-                    <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">
-
-                        "훈련은 설명이 아닌 설계다." 훈련장에서의 성과가 왜 경기장으로 이어지지 않을까요? 이 책은 코치가 '환경 설계자'가 되어 선수 스스로 문제를 해결하도록 유도하는 현대 코칭의 새로운 패러다임을 제시합니다.
-
-                    </p>
-
-                    <a href="https://github.com/ahdbrhsj-netizen/itsfootball/raw/main/%EC%9E%85%EB%AC%B8%EC%84%9C.pdf" target="_blank" rel="noopener noreferrer" class="mt-auto bg-brand-dark text-white text-center font-semibold py-3 px-5 rounded-lg hover:bg-gray-700 transition-colors">
-
-                        PDF 바로보기
-
-                    </a>
-
-                </div>
-
-            </div>
-
-            
-
-        </div>
-
-        </section>
-
-    </main>
-
-
-
-    <footer class="bg-brand-dark text-white py-12 px-6">
-
-        <div class="container mx-auto text-center">
-
-            <h3 class="text-3xl font-bold mb-4">미래를 향한 여정, 잇츠풋볼 U15와 함께.</h3>
-
-            <p class="max-w-2xl mx-auto mb-8">과거의 방식에 머무르는 곳이 아닌, 축구의 미래를 만들어가는 곳을 선택하십시오.</p>
-
-            <a href="https://open.kakao.com/o/gkHrPAOh" target="_blank" rel="noopener noreferrer" class="bg-brand-primary text-white font-bold py-3 px-8 rounded-full hover:bg-blue-500 transition-colors">입단 문의하기</a>
-
-            
-
-            <div class="mt-8 pt-8 border-t border-gray-700">
-
-                <img src="https://raw.githubusercontent.com/ahdbrhsj-netizen/itsfootball/main/itslogo.png" alt="잇츠풋볼 U15 로고" class="h-16 mx-auto my-8">
-
-                <p class="font-semibold mb-4">잇츠풋볼 공식 채널</p>
-
-                <div class="flex justify-center items-center space-x-4">
-
-                    <a href="https://blog.naver.com/milmyeonboy" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition-colors">
-
-                        공식 블로그
-
-                    </a>
-
-                    <a href="https://www.instagram.com/yungil_choo/" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-bold py-2 px-6 rounded-full hover:bg-pink-600 transition-colors">
-
-                        공식 인스타그램
-
-                    </a>
-
-                </div>
-
-                <p class="text-sm text-gray-400 mt-8">
-
-                    &copy; <span id="current-year"></span> It's Football. All Rights Reserved.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-
-    <script>
-
-        document.addEventListener('DOMContentLoaded', function () {
-
-            const menuBtn = document.getElementById('menu-btn');
-
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            menuBtn.addEventListener('click', () => {
-
-                mobileMenu.classList.toggle('hidden');
-
-            });
-
-
-
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-                anchor.addEventListener('click', function (e) {
-
-                    e.preventDefault();
-
-                    if (!mobileMenu.classList.contains('hidden')) {
-
-                        mobileMenu.classList.add('hidden');
-
-                    }
-
-                    const targetElement = document.querySelector(this.getAttribute('href'));
-
-                    if(targetElement){
-
-                        targetElement.scrollIntoView();
-
-                    }
-
-                });
-
-            });
-
-
-
-            const trainingData = {
-
-                dribble: {
-
-                    labels: ['수비수 인지', '압박 속 의사결정', '창의적 해결책', '상황 적응력'],
-
-                    traditional: [1, 2, 2, 1],
-
-                    itsfootball: [9, 8, 8, 9]
-
-                },
-
-                pass: {
-
-                    labels: ['공간/동료 탐색', '패스 선택', '의사소통', '오프더볼 움직임'],
-
-                    traditional: [1, 1, 2, 1],
-
-                    itsfootball: [9, 8, 7, 9]
-
-                },
-
-                shoot: {
-
-                    labels: ['압박 속 침착성', '슈팅 선택', '연계 플레이', '마무리 능력'],
-
-                    traditional: [2, 2, 1, 4],
-
-                    itsfootball: [8, 9, 8, 9]
-
-                }
-
-            };
-
-
-
-            const ctx = document.getElementById('trainingComparisonChart').getContext('2d');
-
-            if (ctx) { // 캔버스가 존재하는지 확인
-
-                let trainingChart = new Chart(ctx, {
-
-                    type: 'bar',
-
-                    data: {
-
-                        labels: trainingData.dribble.labels,
-
-                        datasets: [
-
-                            {
-
-                                label: '전통적 드릴',
-
-                                data: trainingData.dribble.traditional,
-
-                                backgroundColor: '#e74c3c',
-
-                                borderRadius: 4,
-
-                            },
-
-                            {
-
-                                label: '잇츠풋볼 접근법',
-
-                                data: trainingData.dribble.itsfootball,
-
-                                backgroundColor: '#3498db',
-
-                                borderRadius: 4,
-
-                            }
-
-                        ]
-
-                    },
-
-                    options: {
-
-                        responsive: true,
-
-                        maintainAspectRatio: false,
-
-                        indexAxis: 'y',
-
-                        scales: {
-
-                            x: {
-
-                                beginAtZero: true,
-
-                                max: 10,
-
-                                title: {
-
-                                    display: true,
-
-                                    text: '핵심 학습 결과 수준'
-
-                                }
-
-                            },
-
-                            y: {
-
-                                ticks: {
-
-                                    autoSkip: false
-
-                                }
-
-                            }
-
-                        },
-
-                        plugins: {
-
-                            title: {
-
-                                display: true,
-
-                                text: '훈련 방식에 따른 학습 결과 비교 (1v1 드리블)',
-
-                                font: {
-
-                                    size: 16,
-
-                                    weight: 'bold'
-
-                                }
-
-                            },
-
-                            tooltip: {
-
-                                callbacks: {
-
-                                    label: function(context) {
-
-                                        let label = context.dataset.label || '';
-
-                                        if (label) {
-
-                                            label += ': ';
-
-                                        }
-
-                                        if (context.parsed.x !== null) {
-
-                                            label += context.parsed.x;
-
-                                        }
-
-                                        return label;
-
-                                    }
-
-                                }
-
-                            }
-
-                        }
-
-                    }
-
-                });
-
-
-
-                const chartBtns = document.querySelectorAll('.chart-btn');
-
-                chartBtns.forEach(btn => {
-
-                    btn.addEventListener('click', () => {
-
-                        chartBtns.forEach(b => b.classList.remove('active', 'bg-brand-dark', 'text-white'));
-
-                        chartBtns.forEach(b => b.classList.add('bg-gray-200', 'text-gray-700'));
-
-                        
-
-                        btn.classList.add('active', 'bg-brand-dark', 'text-white');
-
-                        btn.classList.remove('bg-gray-200', 'text-gray-700');
-
-
-
-                        const skill = btn.dataset.skill;
-
-                        const skillTitle = btn.textContent;
-
-                        
-
-                        trainingChart.data.labels = trainingData[skill].labels;
-
-                        trainingChart.data.datasets[0].data = trainingData[skill].traditional;
-
-                        trainingChart.data.datasets[1].data = trainingData[skill].itsfootball;
-
-                        trainingChart.options.plugins.title.text = `훈련 방식에 따른 학습 결과 비교 (${skillTitle})`;
-
-                        trainingChart.update();
-
-                    });
-
-                });
-
-            }
-
-
-
-
-
-            const gameModelData = {
-
-                attack: {
-
-                    title: "볼 소유 시 (공격 원칙)",
-
-                    principles: [
-
-                        "후방 빌드업을 통해 자유로운 선수를 찾는다.",
-
-                        "측면에서 수적 우위를 창출한다.",
-
-                        "상대의 대형을 무너뜨리기 위해 라인 브레이킹 패스를 우선시한다."
-
-                    ]
-
-                },
-
-                defense: {
-
-                    title: "볼 미소유 시 (수비 원칙)",
-
-                    principles: [
-
-                        "높은 위치에서 공을 되찾기 위해 공격적으로 압박한다.",
-
-                        "중앙 침투를 막기 위해 컴팩트한 대형을 유지한다.",
-
-                        "집단적 수비 책임을 위해 끊임없이 소통한다."
-
-                    ]
-
-                },
-
-                t_attack: {
-
-                    title: "공격 전환 시 (볼을 되찾았을 때)",
-
-                    principles: [
-
-                        "우리의 첫 번째 패스는 항상 전방을 향한다.",
-
-                        "상대의 무질서한 수비 뒷공간을 공략한다.",
-
-                        "즉각적인 침투 움직임으로 볼 소유자를 지원한다."
-
-                    ]
-
-                },
-
-                t_defense: {
-
-                    title: "수비 전환 시 (볼을 잃었을 때)",
-
-                    principles: [
-
-                        "5초 안에 공을 되찾기 위해 즉시 역압박(Counter-press)을 시도한다.",
-
-                        "가장 가까운 선수가 볼에 압박을 가한다.",
-
-                        "신속하게 수비 대형으로 복귀한다."
-
-                    ]
-
-                }
-
-            };
-
-            
-
-            const tabButtons = document.querySelectorAll('.tab-button');
-
-            const phaseContent = document.getElementById('phase-content');
-
-            if (tabButtons.length > 0 && phaseContent) {
-
-                function updatePhaseContent(phase) {
-
-                    const data = gameModelData[phase];
-
-                    let contentHTML = `<h4 class="text-2xl font-bold text-brand-dark mb-4">${data.title}</h4><ul class="space-y-3 list-disc list-inside text-lg">`;
-
-                    data.principles.forEach(p => {
-
-                        contentHTML += `<li>${p}</li>`;
-
-                    });
-
-                    contentHTML += `</ul>`;
-
-                    phaseContent.innerHTML = contentHTML;
-
-                }
-
-
-
-                tabButtons.forEach(button => {
-
-                    button.addEventListener('click', () => {
-
-                        tabButtons.forEach(btn => btn.classList.remove('active'));
-
-                        button.classList.add('active');
-
-                        updatePhaseContent(button.dataset.phase);
-
-                    });
-
-                });
-
-                updatePhaseContent('attack');
-
-            }
-
-
-
-
-
-            const toggleBtn = document.getElementById('toggle-sources-btn');
-
-            const sourcesList = document.getElementById('sources-list');
-
-
-
-            if (toggleBtn && sourcesList) {
-
-                toggleBtn.addEventListener('click', () => {
-
-                    sourcesList.classList.toggle('hidden');
-
-                    const isHidden = sourcesList.classList.contains('hidden');
-
-                    toggleBtn.innerHTML = isHidden ? '데이터 근거 보기 &darr;' : '데이터 근거 숨기기 &uarr;';
-
-                });
-
-            }
-
-
-
-
-
-            // 푸터 연도 자동 업데이트
-
-            const currentYearEl = document.getElementById('current-year');
-
-            if(currentYearEl) {
-
-                currentYearEl.textContent = new Date().getFullYear();
-
-            }
-
-
-
-            // 스크롤에 따른 메뉴 활성화 기능
-
-            const sections = document.querySelectorAll('main section[id]');
-
-            const navLinks = document.querySelectorAll('header .nav-link');
-
-
-
-            if (sections.length > 0 && navLinks.length > 0) {
-
-                const observerOptions = {
-
-                    root: null,
-
-                    rootMargin: '0px',
-
-                    threshold: 0.5
-
-                };
-
-
-
-                const observer = new IntersectionObserver((entries, observer) => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            navLinks.forEach(link => {
-
-                                link.classList.remove('active');
-
-                                if (link.getAttribute('href').substring(1) === entry.target.id) {
-
-                                    link.classList.add('active');
-
-                                }
-
-                            });
-
-                        }
-
-                    });
-
-                }, observerOptions);
-
-
-
-                sections.forEach(section => {
-
-                    observer.observe(section);
-
-                });
-
-            }
-
-        });
-
-    </script>
-
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/ahdbrhsj-netizen/itsfootball/main/itslogo.png" alt="잇츠풋볼 U15 로고" class="h-16 md:h-20">
+            </a>
+            <div class="hidden md:flex items-center space-x-10 text-gray-700">
+                <a href="#philosophy" class="nav-link">우리의 철학</a>
+                <a href="#methodology" class="nav-link">훈련 방법론</a>
+                <a href="#ebooks" class="nav-link">무료 E-Book</a>
+                <a href="#partnership" class="nav-link">파트너십</a>
+                <a href="https://open.kakao.com/o/gkHrPAOh" target="_blank" rel="noopener noreferrer" class="gradient-btn text-white font-bold py-2 px-6 rounded-full">
+                    입단 문의
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-navy focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="#philosophy" class="block py-3 px-6 text-base font-semibold text-gray-700 hover:bg-gray-50">우리의 철학</a>
+            <a href="#methodology" class="block py-3 px-6 text-base font-semibold text-gray-700 hover:bg-gray-50">훈련 방법론</a>
+            <a href="#gamemodel" class="block py-3 px-6 text-base font-semibold text-gray-700 hover:bg-gray-50">경기 모델</a>
+            <a href="#player" class="block py-3 px-6 text-base font-semibold text-gray-700 hover:bg-gray-50">선수 육성</a>
+            <a href="#ebooks" class="block py-3 px-6 text-base font-semibold text-gray-700 hover:bg-gray-50">무료 E-Book</a>
+            <a href="#partnership" class="block py-3 px-6 text-base font-semibold text-gray-700 hover:bg-gray-50">파트너십</a>
+            <a href="https://open.kakao.com/o/gkHrPAOh" target="_blank" rel="noopener noreferrer" class="block py-3 px-6 text-base font-semibold text-gray-700 hover:bg-gray-50">입단 문의</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative text-white text-center py-40 px-6 bg-navy overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('https://images.unsplash.com/photo-1551958214-2d51d7858346?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-transparent"></div>
+            <div class="relative z-10">
+                <h1 class="section-title text-5xl md:text-7xl mb-4">THINK, DOMINATE, ADAPT.</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 leading-relaxed">
+                    잇츠풋볼 U15는 과학적 접근법과 명확한 축구 철학으로 스스로 생각하고, 경기를 지배하며, 어떤 상황에서도 적응하는 선수를 만듭니다.
+                </p>
+            </div>
+        </section>
+
+        <section id="philosophy" class="py-24 px-6 bg-white">
+            <div class="container mx-auto text-center">
+                <p class="section-subtitle">OUR PHILOSOPHY</p>
+                <h2 class="section-title text-navy mt-2 mb-8">과거의 방식으로는 미래를 준비할 수 없습니다.</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed mb-16">
+                    현대 축구는 그 어느 때보다 빠르고 복잡합니다. 정해진 동작을 기계적으로 반복하는 훈련은 더 이상 통하지 않습니다. 우리는 선수의 창의성과 자율적인 의사결정 능력을 저해하는 낡은 방식을 버리고, 선수 육성에 대한 근본적인 패러다임 전환을 제안합니다.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 text-left">
+                        <span class="text-5xl font-bold text-gold">01</span>
+                        <h3 class="font-bold text-2xl text-navy mt-4 mb-3">훈련 방법론: 생태역학</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            '어떻게' 훈련하는가? 우리는 실제 경기의 복잡성을 그대로 반영한 훈련 환경을 설계합니다. 선수들은 정답을 주입받는 것이 아니라, 스스로 문제를 발견하고 해결하며 '기술 적응(Skill Adaptation)' 능력을 키웁니다.
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 text-left">
+                        <span class="text-5xl font-bold text-gold">02</span>
+                        <h3 class="font-bold text-2xl text-navy mt-4 mb-3">축구 정체성: 경기 모델</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            '무엇을' 추구하는가? 우리는 명확한 경기 모델을 통해 우리가 어떤 축구를 할 것인지에 대한 청사진을 제시합니다. 이는 선수들이 경기장 위에서 내리는 모든 결정의 일관된 기준점이 됩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="methodology" class="py-24 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <p class="section-subtitle">OUR METHODOLOGY</p>
+                    <h2 class="section-title text-navy mt-2">드릴과 콘을 넘어서: 기술 적응의 과학</h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed mt-4">
+                        전통적인 훈련과 잇츠풋볼의 생태역학적 접근은 어떤 차이를 만들까요? 아래 버튼을 클릭하여 훈련 목표에 따른 핵심 학습 결과의 차이를 직접 확인해보세요. 우리의 훈련은 선수가 경기 당일의 퍼포먼스로 직접 이어지도록 설계됩니다.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                    <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-8">
+                        <button class="chart-btn active px-5 py-2 bg-navy text-white rounded-full font-semibold text-sm">1v1 드리블</button>
+                        <button class="chart-btn px-5 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold text-sm">패스 정확도</button>
+                        <button class="chart-btn px-5 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold text-sm">슈팅 능력</button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="trainingComparisonChart"></canvas>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button id="toggle-sources-btn" class="text-sm font-semibold text-gray-500 hover:text-navy transition-colors">
+                            과학적 근거자료 보기 &darr;
+                        </button>
+                        <div id="sources-list" class="hidden mt-4 p-6 bg-gray-100 rounded-lg text-left max-w-4xl mx-auto">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gamemodel" class="py-24 px-6 bg-white">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <p class="section-subtitle">OUR GAME MODEL</p>
+                    <h2 class="section-title text-navy mt-2">성공을 위한 청사진: 경기 모델</h2>
+                     <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed mt-4">
+                        경기 모델은 우리 팀의 영혼입니다. 이는 우리가 어떤 축구를 하는지, 왜 그렇게 하는지에 대한 명확한 답을 제공합니다. 우리는 경기의 네 가지 국면을 지배하기 위한 명확한 원칙을 가지고 있으며, 이를 통해 선수들은 하나의 유기체처럼 움직입니다.
+                    </p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-navy rounded-xl shadow-lg text-white overflow-hidden">
+                    <div class="grid grid-cols-2 md:grid-cols-4 border-b border-white/20">
+                        <button class="tab-button active p-4 font-bold text-center bg-white/10" data-phase="attack">⚽ 볼 소유 시</button>
+                        <button class="tab-button p-4 font-bold text-center" data-phase="defense">🛡️ 볼 미소유 시</button>
+                        <button class="tab-button p-4 font-bold text-center" data-phase="t_attack">⚡ 공격 전환</button>
+                        <button class="tab-button p-4 font-bold text-center" data-phase="t_defense">🏃 수비 전환</button>
+                    </div>
+                    <div id="phase-content" class="p-8 md:p-10">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="player" class="py-24 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <p class="section-subtitle">PLAYER DEVELOPMENT</p>
+                    <h2 class="section-title text-navy mt-2">4-코너 선수 육성 프레임워크</h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed mt-4">
+                        우리는 기술만 뛰어난 선수가 아닌, 전술, 신체, 심리, 사회성을 모두 갖춘 '완벽한 선수'를 만듭니다. 우리의 모든 훈련은 이 네 가지 영역을 통합적으로 성장시키도록 설계되어 있으며, 이는 경기장 안팎에서 선수의 잠재력을 극대화합니다.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-gold">
+                        <h4 class="text-xl font-bold text-navy mb-2">기술/전술 (Technical/Tactical)</h4>
+                        <p class="text-gray-600">모든 기술은 경기라는 전술적 맥락 안에서 훈련됩니다. 압박 속에서도 무너지지 않는 '기능적인 기술'을 만듭니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-gold">
+                        <h4 class="text-xl font-bold text-navy mb-2">신체 (Physical)</h4>
+                        <p class="text-gray-600">훈련 자체가 축구에 특화된 신체 능력을 요구합니다. 경기 맥락 안에서 가속, 감속, 방향 전환 능력을 자연스럽게 발달시킵니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-gold">
+                        <h4 class="text-xl font-bold text-navy mb-2">심리 (Psychological)</h4>
+                        <p class="text-gray-600">스스로 문제를 해결하고 실패를 통해 배우는 환경 속에서 회복탄력성, 자신감, 창의성이 자연스럽게 만들어집니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-gold">
+                        <h4 class="text-xl font-bold text-navy mb-2">사회성 (Social)</h4>
+                        <p class="text-gray-600">게임 기반 훈련은 자연스럽게 높은 수준의 의사소통, 팀워크, 리더십, 그리고 책임감을 요구합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="ebook-intro" class="py-20 px-6 bg-navy text-white">
+            <div class="container mx-auto text-center">
+                <p class="section-subtitle" style="color: #ffffff;">KNOWLEDGE & INSIGHT</p>
+                <h2 class="section-title mt-2 mb-8">무료 E-Book 자료실</h2>
+                <p class="max-w-3xl mx-auto text-lg leading-loose mb-10 text-gray-300">
+                    잇츠풋볼은 투명한 정보 공개를 지향합니다. 저희의 훈련 철학의 근간이 되는 현대 축구 훈련 이론과 연구 자료들을 엄선하여 무료로 제공합니다. 선수와 학부모님 모두가 함께 성장할 수 있는 기회를 놓치지 마세요.
+                </p>
+                <a href="#ebooks" class="bg-gold text-navy font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity text-lg">
+                    E-Book 자료실 바로가기 &rarr;
+                </a>
+            </div>
+        </section>
+
+        <section id="partnership" class="py-24 px-6 bg-white">
+            <div class="container mx-auto text-center">
+                <p class="section-subtitle">OUR PARTNERSHIP</p>
+                <h2 class="section-title text-navy mt-2 mb-8">JY Sports Management와 함께합니다.</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed mb-12">
+                    잇츠풋볼은 선수들의 성장과 미래를 위해 JY Sports Management와 정식으로 파트너십을 맺습니다. 이번 협약을 통해 선수들은 더욱 체계적이고 전문적인 지원을 받게 될 것입니다.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 max-w-5xl mx-auto">
+                    <div class="md:w-1/3">
+                        <img src="https://raw.githubusercontent.com/ahdbrhsj-netizen/itsfootball/main/jy_logo.jpg" alt="JY Sports Management 로고" class="rounded-full shadow-lg mx-auto">
+                    </div>
+                    <div class="md:w-2/3 text-left">
+                        <p class="text-3xl font-bold text-navy mb-4 font-oswald">공식 협약: 2025년 9월 6일</p>
+                        <p class="mb-6 text-gray-600">
+                            JY Sports Management는 선수들의 잠재력을 최대로 이끌어내는 전문 에이전시입니다. 잇츠풋볼과의 시너지를 통해 우리 선수들이 더 큰 무대로 나아갈 수 있는 길을 열어줄 것입니다.
+                        </p>
+                        <a href="https://www.instagram.com/jy_sports_management/" target="_blank" rel="noopener noreferrer" class="gradient-btn text-white font-bold py-3 px-8 rounded-full inline-block">
+                            JY Sports Management 방문하기
+                        </a>
+                    </div>
+                </div>
+
+                <hr class="my-16 border-t border-gray-200">
+
+                <div class="mt-12">
+                    <h3 class="text-3xl font-bold text-navy mb-10 font-oswald">주요 파트너십 성과</h3>
+                    <div class="bg-gray-50 rounded-lg shadow-lg p-8 max-w-5xl mx-auto">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ebooks" class="py-24 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <p class="section-subtitle">RESOURCES</p>
+                    <h2 class="section-title text-navy mt-2">잇츠풋볼 E-Book 자료실</h2>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer class="bg-navy text-white pt-20 pb-12 px-6">
+        <div class="container mx-auto text-center">
+            <img src="https://raw.githubusercontent.com/ahdbrhsj-netizen/itsfootball/main/itslogo.png" alt="잇츠풋볼 U15 로고" class="h-20 mx-auto mb-8">
+            <h3 class="text-3xl font-bold mb-4">미래를 향한 여정, 잇츠풋볼 U15와 함께.</h3>
+            <p class="max-w-2xl mx-auto text-gray-400 mb-8">과거의 방식에 머무르는 곳이 아닌, 축구의 미래를 만들어가는 곳을 선택하십시오.</p>
+            <div class="flex justify-center items-center space-x-4 mb-12">
+                <a href="https://blog.naver.com/milmyeonboy" target="_blank" rel="noopener noreferrer" class="bg-white/10 text-white font-bold py-3 px-6 rounded-full hover:bg-white/20 transition-colors">
+                    공식 블로그
+                </a>
+                <a href="https://www.instagram.com/yungil_choo/" target="_blank" rel="noopener noreferrer" class="bg-white/10 text-white font-bold py-3 px-6 rounded-full hover:bg-white/20 transition-colors">
+                    공식 인스타그램
+                </a>
+            </div>
+            <p class="text-sm text-gray-500">
+                &copy; <span id="current-year"></span> It's Football. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(this.getAttribute('href'));
+                        if(targetElement){
+                            targetElement.scrollIntoView();
+                        }
+                    }
+                });
+            });
+
+            const trainingData = { /* ... */ };
+            const ctx = document.getElementById('trainingComparisonChart')?.getContext('2d');
+            if (ctx) {
+                let trainingChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: trainingData.dribble.labels,
+                        datasets: [{
+                            label: '전통적 드릴',
+                            data: trainingData.dribble.traditional,
+                            backgroundColor: '#d9534f'
+                        }, {
+                            label: '잇츠풋볼 접근법',
+                            data: trainingData.dribble.itsfootball,
+                            backgroundColor: '#1a2a45'
+                        }]
+                    },
+                    options: { /* ... */ }
+                });
+                
+                const chartBtns = document.querySelectorAll('.chart-btn');
+                chartBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        chartBtns.forEach(b => {
+                            b.classList.remove('active', 'bg-navy', 'text-white');
+                            b.classList.add('bg-gray-200', 'text-gray-700');
+                        });
+                        btn.classList.add('active', 'bg-navy', 'text-white');
+                        btn.classList.remove('bg-gray-200', 'text-gray-700');
+                        
+                        const skill = btn.dataset.skill;
+                        const skillTitle = btn.textContent;
+                        
+                        trainingChart.data.labels = trainingData[skill].labels;
+                        trainingChart.data.datasets[0].data = trainingData[skill].traditional;
+                        trainingChart.data.datasets[1].data = trainingData[skill].itsfootball;
+                        trainingChart.options.plugins.title.text = `훈련 방식에 따른 학습 결과 비교 (${skillTitle})`;
+                        trainingChart.update();
+                    });
+                });
+            }
+
+            const gameModelData = { /* ... */ };
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const phaseContent = document.getElementById('phase-content');
+            if (tabButtons.length > 0 && phaseContent) {
+                function updatePhaseContent(phase) {
+                    const data = gameModelData[phase];
+                    let contentHTML = `<h4 class="text-2xl font-bold text-white mb-4">${data.title}</h4><ul class="space-y-3 list-disc list-inside text-lg text-gray-300">`;
+                    data.principles.forEach(p => {
+                        contentHTML += `<li>${p}</li>`;
+                    });
+                    contentHTML += `</ul>`;
+                    phaseContent.innerHTML = contentHTML;
+                }
+
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        tabButtons.forEach(btn => btn.classList.remove('active', 'bg-white/10'));
+                        button.classList.add('active', 'bg-white/10');
+                        updatePhaseContent(button.dataset.phase);
+                    });
+                });
+                updatePhaseContent('attack');
+            }
+
+            const toggleBtn = document.getElementById('toggle-sources-btn');
+            const sourcesList = document.getElementById('sources-list');
+            if (toggleBtn && sourcesList) {
+                // 이 부분은 제공해주신 코드에 sources-list의 내용이 없어서 비워둡니다.
+                // 필요하시면 이전 코드를 붙여넣으시면 됩니다.
+            }
+
+            const currentYearEl = document.getElementById('current-year');
+            if(currentYearEl) {
+                currentYearEl.textContent = new Date().getFullYear();
+            }
+
+            const sections = document.querySelectorAll('main section[id]');
+            const navLinks = document.querySelectorAll('header .nav-link');
+            if (sections.length > 0 && navLinks.length > 0) {
+                const observerOptions = { root: null, rootMargin: '0px', threshold: 0.4 };
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            navLinks.forEach(link => {
+                                link.classList.remove('active');
+                                const linkHref = link.getAttribute('href');
+                                if (linkHref && linkHref.substring(1) === entry.target.id) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+                sections.forEach(section => observer.observe(section));
+            }
+        });
+    </script>
 </body>
-
 </html>
-
-
-
-
-                            
